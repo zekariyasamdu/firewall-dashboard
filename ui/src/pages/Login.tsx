@@ -1,6 +1,6 @@
-import Squares from "@/components/ui/Squares";
 import LoginForm from "../components/forms/LoginForm";
 import Particles from "@/components/ui/Particles";
+
 export const Login = () => {
   return (
     <div className="w-screen relative h-screen flex justify-center">
@@ -14,7 +14,7 @@ export const Login = () => {
         alphaParticles={false}
         disableRotation={false}
       />
-      <div className="w-96 h-96 mt-60 absolute">
+      <div className="w-xl h-fit mt-65 absolute">
         <LoginForm />
       </div>
     </div>
