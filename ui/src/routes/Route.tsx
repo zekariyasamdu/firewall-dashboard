@@ -5,9 +5,7 @@ import { Welcome } from "../pages/Welcome";
 import { Login } from "../pages/Login";
 import { useAuth } from "../hooks/useAuth";
 import { WelcomePageLayout } from "@/components/layout/WelcomePageLayout";
-
-// POST /dashboard/login           -> JSON {username,password} sets dashboard_session cookie (HMAC-signed)
-// POST /dashboard/logout          -> clear session cookie
+import Signup from "@/pages/Signup";
 
 export default function Route() {
   const auth = useAuth();
@@ -41,6 +39,10 @@ export default function Route() {
       path: "/login",
       element: <Login />,
     },
+    {
+      path: "/signup",
+      element: <Signup/>
+    }
   ];
 
   const route = createBrowserRouter([

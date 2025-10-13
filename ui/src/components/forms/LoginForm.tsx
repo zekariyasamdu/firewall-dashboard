@@ -12,10 +12,7 @@ import {
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Field, FieldError, FieldGroup, FieldLabel } from "../ui/field";
-
-/* 
-  Card components -> Card, CardHeader, CardFooter,CardTitle, CardAction, CardDescription, CardContent
-  */
+import { useNavigate} from 'react-router-dom';
 
 const LoginSchema = z.object({
   username: z
@@ -27,6 +24,7 @@ const LoginSchema = z.object({
 });
 
 function LoginForm() {
+  const navigate = useNavigate()
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
   });
@@ -37,6 +35,10 @@ function LoginForm() {
     });
     console.log(data);
   };
+
+  const navToSignup = () =>{
+    navigate("/signup", {replace: true})
+  }
 
   return (
     <Card className="w-full h-full">
@@ -102,6 +104,7 @@ function LoginForm() {
             variant={"outline"}id="form-login"
             disabled={form.formState.isSubmitting}
             className="w-full"
+            onClick={()=> (navToSignup())}
           >
             Signup
           </Button>
