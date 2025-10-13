@@ -1,13 +1,12 @@
-import { AuthProvider } from "./components/providers/auth-provider";
-import { SidebarProvider } from "./components/ui/sidebar";
-import Routes from "./routes";
+import { AuthProvider } from "./components/provider/AuthProvider";
+import "./index.css";
+import Route from "./routes/Route";
+
 function App() {
   return (
-    <SidebarProvider>
-      <AuthProvider>
-        <Routes />
-      </AuthProvider>
-    </SidebarProvider>
+    <AuthProvider>
+      <Route />
+    </AuthProvider>
   );
 }
 
