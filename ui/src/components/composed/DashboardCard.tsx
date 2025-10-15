@@ -4,9 +4,8 @@ import {
   CardTitle,
   CardContent,
   CardDescription,
-  CardFooter,
 } from "../ui/card";
-import TrendBadge from "./TrendBadge";
+import TrendBadge from "../visual/TrendBadge";
 
 type TDashboardCards = {
   title: string;
@@ -25,14 +24,13 @@ export const DashboardCards = ({
   ...props
 }: TDashboardCards) => {
   return (
-    <Card className={cn("h-full w-1/4 relative", className)} {...props}>
+    <Card className={cn("h-full w-1/4 relative pl-6", className)} {...props}>
       <TrendBadge className="absolute right-2 top-2" change={change} />
-      <CardTitle>{title}</CardTitle>
-      <CardContent>{content}</CardContent>
-      <CardDescription>
+      <CardTitle className="text-muted-foreground">{title}</CardTitle>
+      <CardContent className="font-bold text-3xl p-0">{content}</CardContent>
+      <CardDescription className="text-muted-foreground ">
         Trending {change > 0 ? "up" : "down"} this {period}
       </CardDescription>
-      <CardFooter>{period}</CardFooter>
     </Card>
   );
 };

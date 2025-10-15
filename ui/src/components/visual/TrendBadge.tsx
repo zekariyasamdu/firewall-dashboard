@@ -1,19 +1,26 @@
 import { cn } from "@/lib/utils";
 import { Badge } from "../ui/badge";
+import { TrendingDown, TrendingUp } from "lucide-react";
 
-function TrendBadge({ className, change }: { change: number, className: string }) {
+function TrendBadge({ className, change }: { change: number, className?: string }) {
   const changeType =
     change > 0 ? "increase" : change < 0 ? "decrease" : "no-change";
 
   const badgeText =
     changeType === "increase"
-      ? `↗ +${change.toFixed(1)}%`
+      ? ` +${change.toFixed(1)}%`
       : changeType === "decrease"
-      ? `↘ ${change.toFixed(1)}%`
-      : `→ 0%`;
+      ? ` ${change.toFixed(1)}%`
+      : ` 0%`;
+
+  function directionIcon(change:number){
+    if(change === 0) return '→'
+    if(change > 0) return <TrendingUp className="h-4 w-4" />
+    return <TrendingDown className="h-4 w-4" />
+  }
 
   return (
-    <Badge
+    <Badge 
       variant="secondary"
       className={cn(
         "text-xs",
@@ -26,7 +33,7 @@ function TrendBadge({ className, change }: { change: number, className: string }
           "bg-gray-100 text-gray-700 dark:bg-gray-900/20 dark:text-gray-400"
       )}
     >
-      {badgeText}
+      {directionIcon(change)} {badgeText}
     </Badge>
   );
 }

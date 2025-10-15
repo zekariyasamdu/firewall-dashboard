@@ -1,7 +1,7 @@
 import { DashboardCards } from "@/components/composed/DashboardCard";
-import {
-  Card,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { AttackTrends } from "@/components/visual/AttackTrends";
+import { OwaspChart } from "@/components/visual/OwaspChart";
 export const Dashboard = () => {
   return (
     <div className="flex flex-col gap-3 w-full h-full items-center p-10">
@@ -13,28 +13,28 @@ export const Dashboard = () => {
           change={-20}
         />
         <DashboardCards
-          title="Requests"
-          content="1040"
+          title="Blocked"
+          content="840"
           period="month"
-          change={20}
+          change={14}
         />
 
         <DashboardCards
           title="Requests"
-          content="1040"
+          content="56"
           period="month"
           change={20}
         />
         <DashboardCards
           title="Requests"
-          content="1040"
+          content="40"
           period="month"
-          change={20}
+          change={0}
         />
       </div>
       <div className="w-7/8 h-3/6 justify-between gap-2 pl-2 pr-2 flex flex-row ">
-        <Card className="h-full w-3/4"></Card>
-        <Card className="h-full w-1/4"></Card>
+        <AttackTrends/>
+        <OwaspChart />
       </div>
       <div className="w-7/8 h-2/6 justify-between gap-2 pl-2 pr-2 flex flex-row ">
         <Card className="h-full w-1/3"></Card>

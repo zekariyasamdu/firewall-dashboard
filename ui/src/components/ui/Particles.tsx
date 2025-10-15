@@ -119,7 +119,13 @@ const Particles: React.FC<ParticlesProps> = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const renderer = new Renderer({ depth: false, alpha: true });
+    let renderer : Renderer | null = null;
+    try {
+    renderer = new Renderer({ depth: false, alpha: true });
+  } catch (err) {
+    console.error("WebGL initialization failed:", err);
+    return;
+  }
     const gl = renderer.gl;
     container.appendChild(gl.canvas);
     gl.clearColor(0, 0, 0, 0);

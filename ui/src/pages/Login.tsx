@@ -2,9 +2,10 @@ import LoginForm from "../components/forms/LoginForm";
 import Particles from "@/components/ui/Particles";
 
 export const Login = () => {
+  console.log("rendered")
   return (
     <div className="w-screen relative h-screen flex justify-center">
-      <Particles
+       <Particles
         particleColors={["#ffffff", "#ffffff"]}
         particleCount={200}
         particleSpread={10}
