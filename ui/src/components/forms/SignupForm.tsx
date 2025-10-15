@@ -52,13 +52,15 @@ export default function SignupForm() {
   return (
     <Card className="w-full h-full">
       <CardHeader className="relative">
-        <ChevronLeft onClick={() => navToLogin()} className="absolute left-4" />
+        <ChevronLeft
+          onClick={() => navToLogin()}
+          className="absolute left-4 hover:cursor-pointer"
+        />
         <CardTitle className="ml-auto mr-auto">Signup</CardTitle>
       </CardHeader>
       <CardContent>
         <form id="form-login" onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
-
             <Controller
               name="username"
               control={form.control}
@@ -112,6 +114,7 @@ export default function SignupForm() {
                     autoComplete="off"
                     type="password"
                     aria-invalid={fieldState.invalid}
+                    placeholder="root@1234"
                   />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
@@ -132,6 +135,7 @@ export default function SignupForm() {
                     autoComplete="off"
                     type="password"
                     aria-invalid={fieldState.invalid}
+                    placeholder="root@1234"
                   />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />

@@ -80,6 +80,7 @@ function LoginForm() {
                     autoComplete="off"
                     type="password"
                     aria-invalid={fieldState.invalid}
+                    placeholder="root@1234"
                   />
                   {fieldState.invalid && (
                     <FieldError errors={[fieldState.error]} />
