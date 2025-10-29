@@ -10,7 +10,8 @@ export const AuthProvider = ({ children }: IAuth) => {
   //const [token, _setToken] = useState<string | null>(
   // localStorage.getItem("access_token")
   //);
-  const [token, _setToken] = useState<string | null>("ddj");
+  const [token, _setToken] = useState<string | null>(null);
+  console.log(token);
 
   function setToken(token: string | null) {
     _setToken(token);

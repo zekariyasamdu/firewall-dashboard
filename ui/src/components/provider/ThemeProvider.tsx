@@ -18,6 +18,7 @@ export const ThemeProvider = ({
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  console.log(theme);
   const toggleTheme = useMemo(() => {
     return {
       theme,
