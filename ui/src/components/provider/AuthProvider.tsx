@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }: IAuth) => {
   // localStorage.getItem("access_token")
   //);
   const [token, _setToken] = useState<string | null>(null);
+  console.log(token);
 
   function setToken(token: string | null) {
     _setToken(token);
